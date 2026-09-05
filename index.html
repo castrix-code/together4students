@@ -397,31 +397,16 @@ a:hover{color:var(--gold)}
       </div>
 
       <div class="card">
-        <p class="card__label">Choose an amount</p>
-        <div class="chips" id="chips" role="group" aria-label="Contribution amount">
-          <button type="button" class="chip" data-amt="25">$25</button>
-          <button type="button" class="chip" data-amt="50">$50</button>
-          <button type="button" class="chip" data-amt="100" aria-pressed="true">$100</button>
-          <button type="button" class="chip" data-amt="250">$250</button>
-          <button type="button" class="chip" data-amt="500">$500</button>
+        <p class="card__label">Give via Zelle</p>
+        <p class="fineprint" style="margin-top:10px">Send any amount straight from your bank's app to the email below. Please include your name and mailing address in the memo — New Jersey election law requires us to record contributor information above the reporting threshold.</p>
+
+        <div class="field" style="padding:12px 14px;justify-content:center">
+          <strong id="zelleEmail" style="color:var(--body);font-size:1.05rem">togetherforstudents@gmail.com</strong>
         </div>
 
-        <label class="card__label" for="custom" style="display:block;margin-top:20px">Other amount</label>
-        <div class="field">
-          <span class="field__pre" aria-hidden="true">$</span>
-          <input id="custom" type="text" inputmode="numeric" placeholder="0" autocomplete="off">
-        </div>
+        <button type="button" class="btn btn--solid" id="copyZelle" style="display:block;width:100%;text-align:center;margin-top:14px;border:0">Copy Zelle email</button>
 
-        <!-- TODO: replace href with your ActBlue / Anedot / Zeffy page. -->
-        <a class="btn btn--solid" id="giveBtn" href="#" style="display:block;width:100%;text-align:center;margin-top:18px;border:0">Contribute $100</a>
-
-        <p class="fineprint">Contributions are not tax-deductible. You'll be taken to a secure payment page to finish.</p>
-
-        <div style="border-top:1px solid var(--rule);padding-top:13px;margin-top:13px">
-          <p class="card__label">Or give via Zelle</p>
-          <p class="fineprint" style="margin-top:6px">Send any amount straight from your bank's app to <strong style="color:var(--body)" id="zelleEmail">togetherforstudents@gmail.com</strong>. Please include your name and mailing address in the memo — New Jersey election law requires us to record contributor information above the reporting threshold.</p>
-          <button type="button" class="btn btn--ghost" id="copyZelle" style="display:block;width:100%;text-align:center;margin-top:10px">Copy Zelle email</button>
-        </div>
+        <p class="fineprint">Contributions are not tax-deductible.</p>
 
         <p class="fineprint" style="border-top:1px solid var(--rule);padding-top:13px">Prefer to give by check? Make it payable to <strong style="color:var(--body)">Together For Students</strong> and email us for the mailing address. New Jersey election law requires us to record the name and address of contributors above the reporting threshold.</p>
       </div>
@@ -491,23 +476,6 @@ a:hover{color:var(--gold)}
       bo.observe(ballot);
     }
   }
-
-  /* donation amount picker */
-  var chips  = Array.prototype.slice.call(document.querySelectorAll('.chip'));
-  var custom = document.getElementById('custom');
-  var give   = document.getElementById('giveBtn');
-  var amount = 100;
-
-  function paint(){
-    chips.forEach(function(c){ c.setAttribute('aria-pressed', String(!custom.value && Number(c.dataset.amt) === amount)); });
-    var total = custom.value ? Number(custom.value) : amount;
-    give.textContent = total > 0 ? 'Contribute $' + total : 'Enter an amount';
-  }
-  chips.forEach(function(c){
-    c.addEventListener('click', function(){ amount = Number(c.dataset.amt); custom.value = ''; paint(); });
-  });
-  custom.addEventListener('input', function(){ custom.value = custom.value.replace(/[^0-9]/g,''); paint(); });
-  paint();
 
   /* copy Zelle email to clipboard */
   var copyZelle = document.getElementById('copyZelle');
