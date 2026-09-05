@@ -416,6 +416,13 @@ a:hover{color:var(--gold)}
         <a class="btn btn--solid" id="giveBtn" href="#" style="display:block;width:100%;text-align:center;margin-top:18px;border:0">Contribute $100</a>
 
         <p class="fineprint">Contributions are not tax-deductible. You'll be taken to a secure payment page to finish.</p>
+
+        <div style="border-top:1px solid var(--rule);padding-top:13px;margin-top:13px">
+          <p class="card__label">Or give via Zelle</p>
+          <p class="fineprint" style="margin-top:6px">Send any amount straight from your bank's app to <strong style="color:var(--body)" id="zelleEmail">togetherforstudents@gmail.com</strong>. Please include your name and mailing address in the memo — New Jersey election law requires us to record contributor information above the reporting threshold.</p>
+          <button type="button" class="btn btn--ghost" id="copyZelle" style="display:block;width:100%;text-align:center;margin-top:10px">Copy Zelle email</button>
+        </div>
+
         <p class="fineprint" style="border-top:1px solid var(--rule);padding-top:13px">Prefer to give by check? Make it payable to <strong style="color:var(--body)">Together For Students</strong> and email us for the mailing address. New Jersey election law requires us to record the name and address of contributors above the reporting threshold.</p>
       </div>
     </div>
@@ -501,6 +508,24 @@ a:hover{color:var(--gold)}
   });
   custom.addEventListener('input', function(){ custom.value = custom.value.replace(/[^0-9]/g,''); paint(); });
   paint();
+
+  /* copy Zelle email to clipboard */
+  var copyZelle = document.getElementById('copyZelle');
+  if (copyZelle) {
+    copyZelle.addEventListener('click', function(){
+      var text = document.getElementById('zelleEmail').textContent;
+      var done = function(){
+        var original = copyZelle.textContent;
+        copyZelle.textContent = 'Copied!';
+        setTimeout(function(){ copyZelle.textContent = original; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else {
+        done();
+      }
+    });
+  }
 
   /* email signup -> opens a pre-filled message to the campaign */
   var email = document.getElementById('email');
