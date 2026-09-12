@@ -242,10 +242,10 @@ a:hover{color:var(--gold)}
   <div class="shell masthead__in">
     <a class="wordmark" href="#top">Together For Students<span>Montgomery Board of Education</span></a>
     <nav class="nav" aria-label="Primary">
+      <a href="#donate">Donate</a>
       <a href="#ballot">The ballot</a>
       <a href="#priorities">Priorities</a>
       <a href="#candidates">Candidates</a>
-      <a href="#donate">Donate</a>
       <a class="nav__cta" href="#join">Get updates</a>
     </nav>
   </div>
@@ -272,6 +272,45 @@ a:hover{color:var(--gold)}
     </div>
   </section>
 
+  <!-- DONATE -->
+  <section class="section shell" id="donate" data-reveal style="padding-top:0">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Support the campaign</p>
+        <h2>Local campaigns run on local support</h2>
+        <p class="split__intro">Every dollar goes to reaching Montgomery voters directly — lawn signs, printed literature, and community forums. There is no consultant class here: three neighbors, three seats, and a volunteer effort.</p>
+        <div style="margin-top:24px">
+          <div class="tier"><span class="tier__amt">$25</span><span class="tier__txt">Prints 100 door-to-door flyers</span></div>
+          <div class="tier"><span class="tier__amt">$100</span><span class="tier__txt">Puts a set of lawn signs on Montgomery streets</span></div>
+          <div class="tier"><span class="tier__amt">$250</span><span class="tier__txt">Covers a mailing to an entire neighborhood</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="card__label">Choose an amount</p>
+        <div class="chips" id="chips" role="group" aria-label="Contribution amount">
+          <button type="button" class="chip" data-amt="25">$25</button>
+          <button type="button" class="chip" data-amt="50">$50</button>
+          <button type="button" class="chip" data-amt="100" aria-pressed="true">$100</button>
+          <button type="button" class="chip" data-amt="250">$250</button>
+          <button type="button" class="chip" data-amt="500">$500</button>
+        </div>
+
+        <label class="card__label" for="custom" style="display:block;margin-top:20px">Other amount</label>
+        <div class="field">
+          <span class="field__pre" aria-hidden="true">$</span>
+          <input id="custom" type="text" inputmode="numeric" placeholder="0" autocomplete="off">
+        </div>
+
+        <!-- TODO: replace href with your ActBlue / Anedot / Zeffy page. -->
+        <a class="btn btn--solid" id="giveBtn" href="#" style="display:block;width:100%;text-align:center;margin-top:18px;border:0">Contribute $100</a>
+
+        <p class="fineprint">Contributions are not tax-deductible. You'll be taken to a secure payment page to finish.</p>
+        <p class="fineprint" style="border-top:1px solid var(--rule);padding-top:13px">Prefer to give by check? Make it payable to <strong style="color:var(--body)">Together For Students</strong> and email us for the mailing address. New Jersey election law requires us to record the name and address of contributors above the reporting threshold.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- BALLOT -->
   <section class="ballot-band section" id="ballot">
     <div class="shell ballot-grid">
@@ -282,9 +321,9 @@ a:hover{color:var(--gold)}
       </div>
       <div class="ballot" id="ballotCard">
         <div class="ballot__head"><span>Board of Education</span><span>Vote for three</span></div>
-        <div class="ballot__row"><span class="oval" aria-hidden="true"></span><span class="ballot__name">Eric D. Seguin</span></div>
-        <div class="ballot__row"><span class="oval" aria-hidden="true"></span><span class="ballot__name">Nehulkumar “Nick” Barot</span></div>
-        <div class="ballot__row"><span class="oval" aria-hidden="true"></span><span class="ballot__name">Chunxiao “Chris” Xu</span></div>
+        <div class="ballot__row"><span class="oval" aria-hidden="true"></span><span class="ballot__name">Eric D. Seguin<small>Belle Mead</small></span></div>
+        <div class="ballot__row"><span class="oval" aria-hidden="true"></span><span class="ballot__name">Nekulkumar “Nick” Barot<small>Belle Mead</small></span></div>
+        <div class="ballot__row"><span class="oval" aria-hidden="true"></span><span class="ballot__name">Chunxiao “Chris” Xu<small>Belle Mead</small></span></div>
         <div class="ballot__foot">Tuesday, November 3, 2026 · Montgomery Township</div>
       </div>
     </div>
@@ -382,37 +421,6 @@ a:hover{color:var(--gold)}
     </div>
   </section>
 
-  <!-- DONATE -->
-  <section class="section shell" id="donate" data-reveal>
-    <div class="split">
-      <div>
-        <p class="eyebrow">Support the campaign</p>
-        <h2>Local campaigns run on local support</h2>
-        <p class="split__intro">Every dollar goes to reaching Montgomery voters directly — lawn signs, printed literature, and community forums. There is no consultant class here: three neighbors, three seats, and a volunteer effort.</p>
-        <div style="margin-top:24px">
-          <div class="tier"><span class="tier__amt">$25</span><span class="tier__txt">Prints 100 door-to-door flyers</span></div>
-          <div class="tier"><span class="tier__amt">$100</span><span class="tier__txt">Puts a set of lawn signs on Montgomery streets</span></div>
-          <div class="tier"><span class="tier__amt">$250</span><span class="tier__txt">Covers a mailing to an entire neighborhood</span></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <p class="card__label">Give via Zelle</p>
-        <p class="fineprint" style="margin-top:10px">Send any amount straight from your bank's app to the email below. Please include your name and mailing address in the memo — New Jersey election law requires us to record contributor information above the reporting threshold.</p>
-
-        <div class="field" style="padding:12px 14px;justify-content:center">
-          <strong id="zelleEmail" style="color:var(--body);font-size:1.05rem">togetherforstudents@gmail.com</strong>
-        </div>
-
-        <button type="button" class="btn btn--solid" id="copyZelle" style="display:block;width:100%;text-align:center;margin-top:14px;border:0">Copy Zelle email</button>
-
-        <p class="fineprint">Contributions are not tax-deductible.</p>
-
-        <p class="fineprint" style="border-top:1px solid var(--rule);padding-top:13px">Prefer to give by check? Make it payable to <strong style="color:var(--body)">Together For Students</strong> and email us for the mailing address. New Jersey election law requires us to record the name and address of contributors above the reporting threshold.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- JOIN -->
   <section class="join section" id="join">
     <div class="shell split">
@@ -441,11 +449,13 @@ a:hover{color:var(--gold)}
   </div>
   <div>
     <p class="foot__h">Contact</p>
-    <a href="mailto:togetherforstudents@gmail.com">togetherforstudents@gmail.com</a>
+    <a href="mailto:ericdseguin@gmail.com">ericdseguin@gmail.com</a>
+    <a href="mailto:nehula@gmail.com">nehula@gmail.com</a>
+    <a href="mailto:chunxiao88@gmail.com">chunxiao88@gmail.com</a>
   </div>
   <div>
     <p class="foot__h">On the ballot</p>
-    <p>All three candidates are long-time Montgomery residents running under the slogan <em>Together For Students</em>. Vote for three on Tuesday, November 3, 2026.</p>
+    <p>All three candidates are Belle Mead residents running under the slogan <em>Together For Students</em>. Vote for three on Tuesday, November 3, 2026.</p>
   </div>
 </footer>
 
@@ -477,23 +487,22 @@ a:hover{color:var(--gold)}
     }
   }
 
-  /* copy Zelle email to clipboard */
-  var copyZelle = document.getElementById('copyZelle');
-  if (copyZelle) {
-    copyZelle.addEventListener('click', function(){
-      var text = document.getElementById('zelleEmail').textContent;
-      var done = function(){
-        var original = copyZelle.textContent;
-        copyZelle.textContent = 'Copied!';
-        setTimeout(function(){ copyZelle.textContent = original; }, 1800);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(done, done);
-      } else {
-        done();
-      }
-    });
+  /* donation amount picker */
+  var chips  = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var custom = document.getElementById('custom');
+  var give   = document.getElementById('giveBtn');
+  var amount = 100;
+
+  function paint(){
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', String(!custom.value && Number(c.dataset.amt) === amount)); });
+    var total = custom.value ? Number(custom.value) : amount;
+    give.textContent = total > 0 ? 'Contribute $' + total : 'Enter an amount';
   }
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){ amount = Number(c.dataset.amt); custom.value = ''; paint(); });
+  });
+  custom.addEventListener('input', function(){ custom.value = custom.value.replace(/[^0-9]/g,''); paint(); });
+  paint();
 
   /* email signup -> opens a pre-filled message to the campaign */
   var email = document.getElementById('email');
