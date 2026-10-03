@@ -378,6 +378,14 @@ a:hover{color:var(--gold)}
 .foot__h{font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
 .foot a{display:block;color:var(--body);font-size:.95rem;padding:2px 0}
 
+/* ---------- privacy policy + SMS terms ---------- */
+.legal{border-top:1px solid var(--rule)}
+.legal__grid{display:grid;gap:clamp(40px,5vw,64px)}
+@media (min-width:880px){.legal__grid{grid-template-columns:1fr 1fr}}
+.legal h2{font-size:clamp(1.4rem,2.2vw,1.7rem);margin-top:10px}
+.legal p{font-size:.98rem;line-height:1.6;margin-top:12px}
+.legal a{color:var(--forest);text-decoration:underline;text-underline-offset:3px}
+
 /* ---------- reveal ---------- */
 [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.3,1)}
 [data-reveal].shown{opacity:1;transform:none}
@@ -693,6 +701,33 @@ a:hover{color:var(--gold)}
     </div>
   </section>
 
+  <!-- PRIVACY POLICY + SMS TERMS (linked as /#priv and /#term for the texting program) -->
+  <section class="section shell legal" id="legal">
+    <div class="legal__grid">
+
+      <div id="priv">
+        <p class="eyebrow">Privacy</p>
+        <h2>Privacy Policy</h2>
+        <p>Together For Students respects your privacy.</p>
+        <p>Information collected through our website, forms, and text messaging programs may include name, email address, phone number, and voter-related interests.</p>
+        <p>This information is used solely for campaign communication and voter outreach.</p>
+        <p>Mobile information will not be sold, rented, or shared with third parties for marketing or promotional purposes.</p>
+        <p>For questions, contact:<br><a href="mailto:info@Together4Students.com">info@Together4Students.com</a></p>
+      </div>
+
+      <div id="term">
+        <p class="eyebrow">Text messages</p>
+        <h2>SMS Terms &amp; Conditions</h2>
+        <p>By opting in to receive text messages from Together For Students, you agree to receive campaign-related messages including voter registration information, Vote-by-Mail reminders, election updates, volunteer opportunities, and campaign events.</p>
+        <p>Message frequency varies.</p>
+        <p>Message and data rates may apply.</p>
+        <p>Reply STOP to unsubscribe.<br>Reply HELP for help.</p>
+        <p>Contact: <a href="mailto:info@Together4Students.com">info@Together4Students.com</a></p>
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
 <footer class="shell foot">
@@ -703,6 +738,8 @@ a:hover{color:var(--gold)}
   <div>
     <p class="foot__h">Contact</p>
     <a href="mailto:togetherforstudents@gmail.com">togetherforstudents@gmail.com</a>
+    <a href="#priv">Privacy Policy</a>
+    <a href="#term">SMS Terms &amp; Conditions</a>
   </div>
   <div>
     <p class="foot__h">On the ballot</p>
