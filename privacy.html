@@ -79,6 +79,8 @@ a:hover{color:var(--gold)}
 
 .foot{border-top:1px solid var(--rule);padding-block:28px 48px;font-family:var(--sans);font-size:.85rem;color:var(--muted)}
 .foot a{color:var(--body)}
+.foot__legal{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:10px}
+.foot__legal a{text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -128,6 +130,10 @@ a:hover{color:var(--gold)}
 <footer class="foot">
   <div class="shell">
     <p>Paid for by Together For Students. &middot; <a href="/">together4students.com</a></p>
+    <nav class="foot__legal" aria-label="Legal">
+      <a href="#priv">Privacy Policy</a>
+      <a href="#term">SMS Terms &amp; Conditions</a>
+    </nav>
   </div>
 </footer>
 

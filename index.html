@@ -388,11 +388,17 @@ a:hover{color:var(--gold)}
 .contacts p{font-size:1rem;line-height:1.55;margin-top:8px}
 
 /* ---------- footer ---------- */
-.foot{display:grid;gap:26px;padding-block:40px 60px;font-size:.97rem;color:var(--muted)}
+.foot{display:grid;gap:26px;padding-block:40px 0;font-size:.97rem;color:var(--muted)}
 @media (min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1.2fr}}
 .foot__h{font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
 .foot a{display:block;color:var(--body);font-size:.95rem;padding:2px 0}
-.foot a.foot__legal{text-decoration:underline;text-underline-offset:3px}
+/* legal links: a full-width strip under the columns, the last thing on the page */
+.foot__legal{
+  grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 26px;
+  border-top:1px solid var(--rule);padding-block:18px 32px;
+  font-family:var(--sans);font-size:.82rem;
+}
+.foot .foot__legal a{display:inline;font-size:inherit;text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- reveal ---------- */
 [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.3,1)}
@@ -719,13 +725,15 @@ a:hover{color:var(--gold)}
   <div>
     <p class="foot__h">Contact</p>
     <a href="mailto:togetherforstudents@gmail.com">togetherforstudents@gmail.com</a>
-    <a class="foot__legal" id="priv" href="/privacy.html#priv">Privacy Policy</a>
-    <a class="foot__legal" id="term" href="/privacy.html#term">SMS Terms &amp; Conditions</a>
   </div>
   <div>
     <p class="foot__h">On the ballot</p>
     <p>All three candidates are Montgomery residents running under the slogan <em>Together For Students</em>. Vote for three on Tuesday, November 3, 2026.</p>
   </div>
+  <nav class="foot__legal" aria-label="Legal">
+    <a id="priv" href="/privacy.html#priv">Privacy Policy</a>
+    <a id="term" href="/privacy.html#term">SMS Terms &amp; Conditions</a>
+  </nav>
 </footer>
 
 <script>
