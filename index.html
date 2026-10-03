@@ -44,7 +44,7 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 /* the sticky bar only exists on wide screens, so anchors offset by its height */
 :root{--nav-h:0px}
-@media (min-width:900px){:root{--nav-h:69px}}
+@media (min-width:640px){:root{--nav-h:69px}}
 section[id],div[id]{scroll-margin-top:calc(var(--nav-h) + 34px)}
 body{
   margin:0;background:var(--paper);color:var(--body);
@@ -82,7 +82,12 @@ a:hover{color:var(--gold)}
   gap:clamp(20px,3vw,40px);padding-block:14px;
 }
 .masthead.is-stuck{border-bottom-color:var(--rule);box-shadow:0 12px 30px -26px rgba(11,47,29,.55)}
-@media (min-width:900px){.masthead{display:block}}
+@media (min-width:640px){.masthead{display:block}}
+/* mid-width windows: drop the wordmark so the links still fit on one line */
+@media (min-width:640px) and (max-width:899px){
+  .masthead .wordmark{display:none}
+  .masthead .topnav{width:100%;justify-content:space-between}
+}
 
 .wordmark{
   font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.2em;
@@ -134,7 +139,7 @@ a:hover{color:var(--gold)}
 .navToggle__bars span:nth-child(2){top:4.5px}
 .navToggle__bars span:nth-child(3){top:9px}
 @media (max-width:420px){.navToggle__label{display:none}.navToggle{padding:12px 13px}}
-@media (min-width:900px){.navToggle{display:none}}
+@media (min-width:640px){.navToggle{display:none}}
 
 .navScrim{
   position:fixed;inset:0;z-index:60;border:0;padding:0;margin:0;cursor:pointer;
@@ -198,7 +203,7 @@ a:hover{color:var(--gold)}
 
 /* ---------- hero ---------- */
 .hero{padding-top:clamp(82px,9vw,104px)}
-@media (min-width:900px){.hero{padding-top:clamp(40px,6vw,72px)}}
+@media (min-width:640px){.hero{padding-top:clamp(40px,6vw,72px)}}
 .hero__grid{display:grid;gap:clamp(30px,4.5vw,58px);align-items:center}
 @media (min-width:900px){.hero__grid{grid-template-columns:1.02fr .98fr}}
 .hero h1{font-size:clamp(2.4rem,5.6vw,4.05rem);line-height:1.02;margin:20px 0 0}
@@ -728,7 +733,7 @@ a:hover{color:var(--gold)}
   var scrim    = document.getElementById('navScrim');
   var closeBtn = document.getElementById('navClose');
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.navlink'));
-  var wide     = window.matchMedia('(min-width:900px)');
+  var wide     = window.matchMedia('(min-width:640px)');
   var navOpen  = false;
 
   function setNav(open){
