@@ -23,6 +23,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
 
+<script>
+/* The SMS program links to /#priv and /#term (already submitted, so they
+   must keep working). Those hashes now live on privacy.html; send them there.
+   Without JS they land on the matching footer links instead. */
+(function(){
+  var to = {'#priv':'#priv', '#privacy':'#priv', '#term':'#term', '#terms':'#term'};
+  function go(){
+    var h = (location.hash || '').toLowerCase();
+    if (to[h]) location.replace('/privacy.html' + to[h]);
+  }
+  go();
+  window.addEventListener('hashchange', go);
+})();
+</script>
+
 <style>
 :root{
   --ink:#12241A;
@@ -377,14 +392,7 @@ a:hover{color:var(--gold)}
 @media (min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1.2fr}}
 .foot__h{font-family:var(--sans);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
 .foot a{display:block;color:var(--body);font-size:.95rem;padding:2px 0}
-
-/* ---------- privacy policy + SMS terms ---------- */
-.legal{border-top:1px solid var(--rule)}
-.legal__grid{display:grid;gap:clamp(40px,5vw,64px)}
-@media (min-width:880px){.legal__grid{grid-template-columns:1fr 1fr}}
-.legal h2{font-size:clamp(1.4rem,2.2vw,1.7rem);margin-top:10px}
-.legal p{font-size:.98rem;line-height:1.6;margin-top:12px}
-.legal a{color:var(--forest);text-decoration:underline;text-underline-offset:3px}
+.foot a.foot__legal{text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- reveal ---------- */
 [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.3,1)}
@@ -701,33 +709,6 @@ a:hover{color:var(--gold)}
     </div>
   </section>
 
-  <!-- PRIVACY POLICY + SMS TERMS (linked as /#priv and /#term for the texting program) -->
-  <section class="section shell legal" id="legal">
-    <div class="legal__grid">
-
-      <div id="priv">
-        <p class="eyebrow">Privacy</p>
-        <h2>Privacy Policy</h2>
-        <p>Together For Students respects your privacy.</p>
-        <p>Information collected through our website, forms, and text messaging programs may include name, email address, phone number, and voter-related interests.</p>
-        <p>This information is used solely for campaign communication and voter outreach.</p>
-        <p>Mobile information will not be sold, rented, or shared with third parties for marketing or promotional purposes.</p>
-        <p>For questions, contact:<br><a href="mailto:info@Together4Students.com">info@Together4Students.com</a></p>
-      </div>
-
-      <div id="term">
-        <p class="eyebrow">Text messages</p>
-        <h2>SMS Terms &amp; Conditions</h2>
-        <p>By opting in to receive text messages from Together For Students, you agree to receive campaign-related messages including voter registration information, Vote-by-Mail reminders, election updates, volunteer opportunities, and campaign events.</p>
-        <p>Message frequency varies.</p>
-        <p>Message and data rates may apply.</p>
-        <p>Reply STOP to unsubscribe.<br>Reply HELP for help.</p>
-        <p>Contact: <a href="mailto:info@Together4Students.com">info@Together4Students.com</a></p>
-      </div>
-
-    </div>
-  </section>
-
 </main>
 
 <footer class="shell foot">
@@ -738,8 +719,8 @@ a:hover{color:var(--gold)}
   <div>
     <p class="foot__h">Contact</p>
     <a href="mailto:togetherforstudents@gmail.com">togetherforstudents@gmail.com</a>
-    <a href="#priv">Privacy Policy</a>
-    <a href="#term">SMS Terms &amp; Conditions</a>
+    <a class="foot__legal" id="priv" href="/privacy.html#priv">Privacy Policy</a>
+    <a class="foot__legal" id="term" href="/privacy.html#term">SMS Terms &amp; Conditions</a>
   </div>
   <div>
     <p class="foot__h">On the ballot</p>
